@@ -1,0 +1,114 @@
+﻿@model CommonLayer.CommonModels.EventRequestModel
+@{
+    ViewBag.Title = "CreateEvent";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+    SelectList selectList = ViewBag.EventTypeName as SelectList;
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">Event Request</h3>
+</div>
+<br />
+
+@using (Html.BeginForm("CreateEvent", "EventRequest", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+        <div class="col-lg-12">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Event Name</label>
+                    <div class="col-10">
+                        @Html.TextBoxFor(x => x.EventName, new { @class = "form-control", @placeholder = "Course Name" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Description</label>
+                    <div class="col-10">
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Total Speakers</label>
+                    <div class="col-10">
+                        @Html.TextBoxFor(x => x.TotalSpeakers, new { @class = "form-control", @placeholder = "Total Speaker" })
+                       
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">From Date</label>
+                    <div class="col-10">
+                        <input type="date" class="form-control" name="FromDate" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Event Poster</label>
+                    <div class="col-10">
+                        <input type="file" id="Poster" name="File" class="form-control" placeholder="Poster Image" />
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Event Type</label>
+                    <div class="col-10">
+                       @Html.DropDownListFor(Model => Model.EventTypeId, @selectList, "Select", new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">Venu</label>
+                    <div class="col-10">
+                        @Html.TextAreaFor(x => x.Venu, new { @class = "form-control", @placeholder = "Description" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="example-search-input" class="col-2 col-form-label">ToDate</label>
+                    <div class="col-10">
+                         <input type="date" class="form-control" name="ToDate" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-offset-2">&nbsp;</div>
+        </div>
+
+        <div class="row">
+        <div class="form-group">
+            <div class="col-md-3 col-lg-offset-3">
+                @if (Model.Id != null && Model.Id != 0)
+                {
+                    <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                        Update
+                    </button>
+                }
+                else
+                {
+                    <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                        Submit
+                    </button>
+                }
+            </div>
+            <div class="col-md-3">
+                <button value="Edit"
+                        class="btn-block btn btn-danger" type="button" id="addressSearch"
+                        onclick="location.href='@Url.Action("Index", "Course")'">
+                    Cancel
+                </button>
+            </div>
+        </div>
+           
+    </div>
+     
+}
+
+

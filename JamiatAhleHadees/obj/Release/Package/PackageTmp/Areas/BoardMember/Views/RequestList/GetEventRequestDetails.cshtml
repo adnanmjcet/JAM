@@ -1,0 +1,473 @@
+﻿@model CommonLayer.CommonModels.EventRequestModel
+
+@{
+    ViewBag.Title = "NewMadarsaOperationRequestDetails";
+}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" id="success-alert">
+
+        @if (ViewBag.AlertMessage != null)
+        {
+            <div class="alert alert-success alert-dismissible ">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>
+                    @ViewBag.AlertMessage
+                </h4>
+            </div>
+        }
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div>
+    <h4>New Madarasa Oepration Request</h4>
+    <hr />
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <dl class="dl-horizontal">
+                <dt>
+                    <strong>Event Name</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model =>model.EventName)
+                </dd>
+
+
+                <dt>
+                    <strong>Event Type</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EventTypeName)
+                </dd>
+
+                <dt>
+                    <strong>Description</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    <strong>From Date</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FromDate)
+                </dd>
+                <dt>
+                    <strong>To Date</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ToDate)
+                </dd>
+
+                <dt>
+                    <strong>Total Speaker</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TotalSpeakers)
+                </dd>
+
+                <dt>
+                    <strong>Venu</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Venu)
+                </dd>
+
+                <dt>
+                    <strong>Request Submit Id</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RequestSubmitId)
+                </dd>
+
+                <dt>
+                    <strong>Request Type Name</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RequestTypeName)
+                </dd>
+ 
+                  
+               
+
+               
+                <dd>
+               
+
+                <dt>
+                    <strong style="color:forestgreen">User Name</strong>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+  
+                <dt>
+                    <strong style="color:forestgreen">Poster</strong>
+                </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Poster)
+                </dt>
+
+                <dd>
+
+                    @{
+                        string baseDoc1 = string.Empty;
+                        string Doc1Img = string.Empty;
+                        if (Model.Poster != null)
+                        {
+                            baseDoc1 = Convert.ToBase64String(Model.Poster);
+                            Doc1Img = string.Format("data:image/jpg;base64,{0}", baseDoc1);
+                        }
+
+                    }
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="thumbnail">
+                                <a href='@Doc1Img'>
+                                    <img src='@Doc1Img' alt="Lights" style="width:100%">
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </dd>
+            </dl>
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Speaker Name</th>
+                            <th>Topic</th>
+                            <th>Date</th>
+                            <th>Time</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.EventRequestDetailList)
+                        {
+                            <tr>
+                                <td>@item.SpeakerName</td>
+                                <td>@item.Topic</td>
+                                <td>@item.Date</td>
+                                <td>@item.Time</td>
+
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col-lg-8">
+            <div class="nav-tabs-custom" id="#tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Involve Panel</a></li>
+                    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Involved Panels </a></li>
+                    <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Member Opinion</a></li>
+                    <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Board Comments</a></li>
+
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        @using (Html.BeginForm("Involve", "InvolveMember", FormMethod.Post))
+            {
+
+                            <input type="hidden" value="@Model.RequestTypeId" name="RequestTypeId" />
+                            <input type="hidden" value="@Model.RequestSubmitId" name="RequestSubmitId" />
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td><b>Involve Panel</b> </td>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" value="15" name="Involve" />Legal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" value="13" name="Involve" />Finance</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" value="11" name="Involve" />Ulama</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" value="14" name="Involve" />Advisory</td>
+                                    </tr>
+
+
+                                </tbody>
+                                <tfoot>
+
+                                    <tr>
+                                        <td><button type="submit" class="btn btn-primary">Involve</button></td>
+                                    </tr>
+
+                                </tfoot>
+
+                            </table>
+
+                        }
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+
+                        <table class="table table-bordered table-hover">
+
+                            <tbody>
+                                @foreach (var item in Model.PannelMemberInvolved)
+                                {
+                                    <tr><td>@item.UserTypeName</td></tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+                        @Html.Partial("_EventRequestDetails", Model) 
+                    </div>
+
+                    <div class="tab-pane" id="tab_4">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><b>Comments</b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.BoardCommentList)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Comment
+                                            <b><br />@item.UserName ,@item.UserTypeName</b><br />@item.CreatedDate
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="tab_5">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                        like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+
+            <div class="row">
+                @{
+
+                    string cssBtnColorAgree = string.Empty;
+                    string cssBtnColorDisAgree = string.Empty;
+                    if (Model.IsAgreed != null && Model.IsAgreed == true)
+                    {
+                        cssBtnColorAgree = "success";
+                    }
+                    else if (Model.IsAgreed != null && Model.IsAgreed == false)
+                    {
+                        cssBtnColorDisAgree = "danger";
+                    }
+                    else
+                    {
+                        cssBtnColorAgree = cssBtnColorDisAgree = "default";
+                    }
+                }
+                <div class="col-md-4">
+                    <button class="btn  btn-@cssBtnColorAgree btn-lg" type="button" id="btnAcceptRequest">
+                        Agree
+                    </button>
+                    <button class="btn btn-@cssBtnColorDisAgree btn-lg" type="button" id="btnAcceptReject">
+                        Disagree
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Comment</label>
+                        <textarea class="form-control" id="txtComment"></textarea>
+                        <br />
+                        <button type="button" id="btnPostComment" class="btn  btn-primary">Post Comment</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+@using (Html.BeginForm())
+{
+    <input type="hidden" value="@Model.MemberOpinionId" id="txtMemberOpinionId" />
+
+    <input type="hidden" value="@Model.AlreadyExistsInMemberOpinion.ToString()" name="AlreadyExistsInMemberOpinion" id="txtAlreadyExstId" />
+    <input type="hidden" value="@Model.UserId" name="@Model.UserId" id="txtUserId" />
+    <input type="hidden" value="@Model.RequestSubmitId" name="@Model.RequestSubmitId" id="txtRequestSubmitId" />
+    <input type="hidden" value="@Model.RequestTypeId" name="@Model.RequestTypeId" id="txtRequestTypeId" />
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@if (TempData["message"] != null && TempData["message"].ToString() != string.Empty)
+{
+    <script>
+        alert(@TempData["message"]);
+    </script>
+}
+<script>
+    $(document).ready(function () {
+        $(document).on("click", "#btnAcceptRequest,#btnAcceptReject", function (e) {
+            var status = false;
+            if ($(this).attr("id").trim() == "btnAcceptRequest") {
+                status = true;
+            }
+            var _registrationModel = {
+                MemberOpinionId: $("#txtMemberOpinionId").val(),
+                AlreadyExistsInMemberOpinion: $("#txtAlreadyExstId").val(),
+                UserId: $("#txtUserId").val(),
+                RequestSubmitId: $("#txtRequestSubmitId").val(),
+                Comment: $("#txtComment").val(),
+                Status: status
+
+            };
+
+            $.ajax({
+                url: folderBaseUrl + "/BoardMember/RequestApprove/ARNewMadarsaOperation",
+                type: "POST",
+                data: _registrationModel,
+                success: function (response) {
+
+                    refreshMemberOpinion();
+                                       location.reload();
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    location.reload();
+                    console.log(err);
+                }
+            });
+        });
+
+        //$(document).on("click", "#btnAcceptReject", function (e) {
+        //    var _registrationModel = {
+        //        UserId: $("#txtUserId").val(),
+        //        RequestSubmitId: $("#txtRequestSubmitId").val(),
+        //        Comment: $("#txtComment").val(),
+        //        Status: false
+
+        //    };
+        //    buttonDisabledReg();
+        //    $.ajax({
+        //        url: folderBaseUrl + "/BoardMember/RequestApprove/ARMadarsaExtension",
+        //        type: "POST",
+        //        data: _registrationModel,
+        //        success: function (response) {
+        //            //  $("#listCategory").empty().append(response);
+        //            location.reload();
+        //            buttonDisabledReg();
+        //        },
+        //        error: function (err) {
+        //            toastr.error("Registration failed: Internal server error");
+        //            buttonEnableReg();
+        //            console.log(err);
+        //        }
+        //    });
+        //});
+        $(document).on("click", "#btnPostComment", function (e) {
+            var _registrationModel = {
+                UserId: $("#txtUserId").val(),
+                RequestSubmitId: $("#txtRequestSubmitId").val(),
+                Comment: $("#txtComment").val(),
+
+            };
+            buttonDisabledReg();
+            $.ajax({
+                url: folderBaseUrl + "/BoardMember/RequestComment/CommentOnNewMadarsaOperations",
+                type: "POST",
+                data: _registrationModel,
+                success: function (response) {
+                    location.reload();
+                    ClearTextArea();
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+
+    function buttonEnableReg() {
+        $("#btnAcceptRequest span,#btnAcceptReject span").hide();
+        $("#btnAcceptRequest,#btnAcceptReject").prop("disabled", false);
+    }
+
+
+    function buttonDisabledReg() {
+        $("#btnAcceptRequest span,#btnAcceptReject span").show();
+        $("#btnAcceptRequest,#btnAcceptReject").prop("disabled", true);
+    }
+    function refreshMemberOpinion() {
+        var model={
+            RequestSubmitId: $("#txtRequestSubmitId").val()
+        }
+        $.ajax({
+            url: folderBaseUrl + "/BoardMember/RequestList/MemberOpinion",
+            data: model,
+            success: function (responseData) {
+                $("#tab_3").empty().append(responseData);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+
+    function ClearTextArea()
+    {
+        $("#txtComment").val("");
+    }
+
+</script>

@@ -1,0 +1,114 @@
+﻿@model IPagedList<CommonLayer.CommonModels.RequestSubmitModel>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<div class="box-header">
+    <h3 class="box-title">Rejected List</h3>
+
+    <div class="box-tools">
+        <div class="input-group input-group-sm" style="width: 150px;">
+            <input type="text" id="txtSearchOrder" value="" class="form-control" placeholder="Search" />
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<table class="table  table-hover table-responsive ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().ShortDesc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().RequestTypeName)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().UserName)
+        </th>
+        <th>
+            <strong>Status</strong>
+        </th>
+       
+        <th></th>
+    </tr>
+
+    <tbody id="tblBodyOrderList">
+
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.Id">
+                <td class="hide">@item.Id</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDesc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestTypeName)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+               @if (item.IsApproved == null)
+                {
+                <td><span class="badge bg-yellow">Pending</span></td>
+               }
+               else if (item.IsApproved == false)
+               {
+                <td><span class="badge bg-red">Rejected</span></td>
+               }
+               else
+               {
+                <td><span class="badge bg-green">Approved</span></td>
+               }
+
+
+               
+                <td>
+                    @Html.ActionLink("Details", actionName: "GetDetailsbyId", controllerName: "RequestList", routeValues: new { id = @item.Id, RequestTypeId = @item.RequestTypeId }, htmlAttributes: null)
+                    @*@Html.ActionLink("Details", "GetDetailsbyId", new { Id=@item.Id})*@
+
+                </td>
+            </tr>
+        }
+
+</table>
+<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+
+<script>
+    $('#txtSearchOrder').on('keyup', function () {
+        var value = $(this).val();
+        var patt = new RegExp(value, "i");
+
+        $('#tblBodyOrderList').find('tr').each(function () {
+            if (!($(this).find('td').text().search(patt) >= 0)) {
+                $(this).hide();
+            }
+            if (($(this).find('td').text().search(patt) >= 0)) {
+                $(this).show();
+            }
+        });
+    });
+</script>

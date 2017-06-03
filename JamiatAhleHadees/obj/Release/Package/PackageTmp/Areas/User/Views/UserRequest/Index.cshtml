@@ -1,0 +1,118 @@
+﻿@model IPagedList<CommonLayer.CommonModels.RequestSubmitModel>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+ <div class="box-header">
+    <h3 class="box-title">Users List</h3>
+
+    <div class="box-tools">
+        <div class="input-group input-group-sm" style="width: 150px;">
+            <input type="text" id="txtSearchOrder" value="" class="form-control" placeholder="Search" />
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" id="success-alert">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success alert-dismissible ">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>
+                    @TempData["msg"]
+
+                </h4>
+
+            </div>
+        }
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<table class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+    <tr>
+        <th>
+          <strong>ID</strong>
+        </th>
+        <th>
+           <strong>Description</strong>
+        </th>
+
+        <th>
+            <strong>Request Type Name</strong>
+        </th>
+
+
+        <th>
+           <strong>User Name</strong>
+        </th>
+        <th>
+            <strong>Status</strong>
+        </th>
+        <th></th>
+    </tr>
+
+    <tbody id="tblBodyOrderList">
+
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.Id">
+                <td class="hide">@item.Id</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>@item.ShortDesc</td>
+                <td>@item.RequestTypeName</td>
+                <td>@item.UserName</td>
+                
+                @if (item.IsApproved == null)
+                {
+                    <td><span class="badge bg-yellow">Pending</span></td>
+                }
+                else if (item.IsApproved == false)
+                {
+                    <td><span class="badge bg-red">Rejected</span></td>
+                }
+                else
+                {
+                    <td><span class="badge bg-green">Approved</span></td>
+                }
+                @*   <td>@item.Comment</td>*@
+
+
+
+            </tr>
+
+        }
+
+
+</table>
+<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+
+<script>
+    $('#txtSearchOrder').on('keyup', function () {
+        var value = $(this).val();
+        var patt = new RegExp(value, "i");
+
+        $('#tblBodyOrderList').find('tr').each(function () {
+            if (!($(this).find('td').text().search(patt) >= 0)) {
+                $(this).hide();
+            }
+            if (($(this).find('td').text().search(patt) >= 0)) {
+                $(this).show();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,113 @@
+﻿@model CommonLayer.CommonModels.MasjidLandRequestModel
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <td><b>Member</b></td>
+            <td><b>UserType</b>
+            <td><b>Status</b></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            List<int> a = new List<int>();
+            List<int> BoardIds = new List<int> { 2, 3, 4, 5 };
+        }
+
+        @foreach (var item in Model.ApprovedList)
+            {
+            <tr>
+
+                <td> @item.UserName</td>
+                <td> @item.UserTypeName</td>
+
+                @if (item.IsApproved == true)
+                {
+                    <td>
+
+                        <img src="~/Assets/Img/th3MHOFP7G.jpg" height="30" width="30" />
+                    </td>
+                }
+                else
+                {
+                    <td>
+
+                        <img src="~/Assets/Img/No.png" height="30" width="30" />
+                    </td>
+                }
+
+
+            </tr>
+
+            a.Add(item.UserTypeId);
+
+        }
+
+        @foreach (var item in BoardIds)
+        {
+            bool ac = a.Contains(item);
+            if (ac == false)
+            {
+                switch (item)
+                {
+                    case 2:
+                        <tr>
+                            <td>
+                                System Admin
+                            </td>
+                            <td>System Admin</td>
+                            <td>
+                                <img src="~/Assets/Img/775730_interface_512x512.png" height="30" width="30" />
+                                <input type="submit" class="btn btn-default" value="Send SMS" />
+                            </td>
+                        </tr>
+                        break;
+                    case 3:
+                        <tr>
+                            <td>
+                                Vice President
+                            </td>
+                            <td>Vice President</td>
+                            <td>
+                                <img src="~/Assets/Img/775730_interface_512x512.png" height="30" width="30" />
+                                <input type="submit" class="btn btn-default" value="Send SMS" />
+                            </td>
+                        </tr>
+                        break;
+                    case 4:
+                        <tr>
+                            <td>
+                                General Sec
+                            </td>
+                            <td>General Sec</td>
+                            <td>
+                                <img src="~/Assets/Img/775730_interface_512x512.png" height="30" width="30" />
+                                <input type="submit" class="btn btn-default" value="Send SMS" />
+                            </td>
+                        </tr>
+                        break;
+                    case 5:
+                        <tr>
+                            <td>
+                                Joint Sec
+                            </td>
+                            <td>Joint Sec</td>
+                            <td>
+                                <img src="~/Assets/Img/775730_interface_512x512.png" height="30" width="30" />
+                                <input type="submit" class="btn btn-default" value="Send SMS" />
+                            </td>
+                        </tr>
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
+    </tbody>
+</table>
+
+
+

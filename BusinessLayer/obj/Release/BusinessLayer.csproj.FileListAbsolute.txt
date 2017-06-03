@@ -1,0 +1,38 @@
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\BusinessLayer.dll
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\BusinessLayer.pdb
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\CommonLayer.dll
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\DataAccessLayer.dll
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\EntityFramework.dll
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\CommonLayer.pdb
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\DataAccessLayer.pdb
+E:\Running Projects\Demo Version\JAH\BusinessLayer\bin\Release\EntityFramework.xml
+E:\Running Projects\Demo Version\JAH\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+E:\Running Projects\Demo Version\JAH\BusinessLayer\obj\Release\BusinessLayer.dll
+E:\Running Projects\Demo Version\JAH\BusinessLayer\obj\Release\BusinessLayer.pdb
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\CommonLayer.dll
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\EntityFramework.dll
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\CommonLayer.pdb
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\bin\Release\EntityFramework.xml
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\user\Desktop\DD\New Final Colloborate\New Final Colloborate\BusinessLayer\obj\Release\BusinessLayer.pdb
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\BusinessLayer.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\BusinessLayer.pdb
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\CommonLayer.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\DataAccessLayer.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\FirebaseNet.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\Newtonsoft.Json.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\EntityFramework.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\CommonLayer.pdb
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\DataAccessLayer.pdb
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\Newtonsoft.Json.xml
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\bin\Release\EntityFramework.xml
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\obj\Release\BusinessLayer.dll
+E:\Jamit Code Collaborate\JahTestingForAdnan (2)\JahTestingForAdnan\JahTesting2\BusinessLayer\obj\Release\BusinessLayer.pdb
