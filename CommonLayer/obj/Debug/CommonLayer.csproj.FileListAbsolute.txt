@@ -88,3 +88,8 @@ C:\Users\user\Desktop\Merged\JahTesting2\JahTesting2\CommonLayer\bin\Debug\Commo
 C:\Users\user\Desktop\Merged\JahTesting2\JahTesting2\CommonLayer\bin\Debug\CommonLayer.pdb
 C:\Users\user\Desktop\Merged\JahTesting2\JahTesting2\CommonLayer\obj\Debug\CommonLayer.dll
 C:\Users\user\Desktop\Merged\JahTesting2\JahTesting2\CommonLayer\obj\Debug\CommonLayer.pdb
+C:\Users\user\Documents\GitHub\JAM\JAM\CommonLayer\bin\Debug\CommonLayer.dll
+C:\Users\user\Documents\GitHub\JAM\JAM\CommonLayer\bin\Debug\CommonLayer.pdb
+C:\Users\user\Documents\GitHub\JAM\JAM\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\JAM\JAM\CommonLayer\obj\Debug\CommonLayer.dll
+C:\Users\user\Documents\GitHub\JAM\JAM\CommonLayer\obj\Debug\CommonLayer.pdb
