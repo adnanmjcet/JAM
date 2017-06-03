@@ -124,7 +124,7 @@ namespace CommonLayer.CommonModels
         public bool IsPanelInvolved { get; set; }
         public bool? IsPanelHeadUser { get; set; }
 
-        public bool? IsAmeerApproved { get; set; }
+        public bool IsAmeerApproved { get; set; }
         public List<RequestCommentModel> AdminCommentList { get; set; }
 
 
