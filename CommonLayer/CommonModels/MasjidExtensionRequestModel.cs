@@ -90,8 +90,8 @@ namespace CommonLayer.CommonModels
         public bool? LikeStatus { get; set; }
         public bool? IsObject { get; set; }
         public bool? IsObjectClicked { get; set; }
-        public bool? IsPanelInvolved { get; set; }
-        public bool? IsPanelHeadUser { get; set; }
+        public bool IsPanelInvolved { get; set; }
+        public bool IsPanelHeadUser { get; set; }
         public bool? IsAmeerApproved { get; set; }
         public List<RequestCommentModel> AdminCommentList { get; set; }
     }
