@@ -113,6 +113,16 @@ namespace BusinessLayer.Implementation
             };
             return _UserModel;
         }
+
+        public bool UpdateResetPassword(string userName,string NewPassword,string otp)
+        {
+            var user = tbl_UserRegistration.GetWithInclude(x => x.UserName.ToLower() == userName.ToLower() && x.OTPPassword == otp).FirstOrDefault();
+            if (user==null)
+                return false;
+            user.Password = NewPassword;
+            tbl_UserRegistration.Update(user);
+            return true;
+        }
         public UserModel GetDetails(UserModel model)
         {
             model = model ?? new UserModel();
@@ -174,7 +184,7 @@ namespace BusinessLayer.Implementation
                 userIds = tbl_userGroupMap.GetWithInclude(x => model.UserGroupList.Contains(x.UserGroupID.Value)).Select(x => x.UserID.Value).ToList();
             }
             else // else categoryId
-                userIds = tbl_UserCategoryMap.GetWithInclude(x => x.CategoryID == Convert.ToInt32(model.CategoryID) && Convert.ToBoolean(x.IsSelected == true)).Select(x => Convert.ToInt32(x.UserID)).ToList();
+                userIds = tbl_UserCategoryMap.GetWithInclude(x => x.CategoryID == model.CategoryID && x.IsSelected == true).Select(x => x.UserID).ToList();
 
             if (userIds.Count == 0)
                 return;

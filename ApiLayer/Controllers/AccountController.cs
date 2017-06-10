@@ -299,37 +299,49 @@ namespace ApiLayer.Controllers
         [HttpGet]
         public IHttpActionResult ResetPassword(string UserName, string NewPassword, string otp)
         {
-            var res = _userRegistrationBs.UserRegistrationList().Where(x => x.UserName == UserName).FirstOrDefault();
+            //var res = _userRegistrationBs.UserRegistrationList().Where(x => x.UserName == UserName).FirstOrDefault();
 
-            if (res != null && res.OTPPassword == otp)
-            {
+            //if (res != null && res.OTPPassword == otp)
+            //{
 
-                UserModel _user = new UserModel();
-                _user.Id = res.Id;
-                _user.Name = res.Name;
-                _user.Area = res.Area;
-                _user.Contact = res.Email;
-                _user.Password = NewPassword;
-                _user.IsOTPCheck = res.IsOTPCheck;
-                _user.OTPPassword = res.OTPPassword;
-                _user.RoleId = res.RoleId;
-                _user.UserTypeId = res.UserTypeId;
-                _user.DeviceID = res.DeviceID;
-                _user.Platform = res.Platform;
-                _userRegistrationBs.Save(_user);
-                apiResponse.IsSuccess = true;
-                apiResponse.Message = "Password reset successfully";
+            //    UserModel _user = new UserModel();
+            //    _user.Id = res.Id;
+            //    _user.Name = res.Name;
+            //    _user.Area = res.Area;
+            //    _user.Contact = res.Email;
+            //    _user.Password = NewPassword;
+            //    _user.IsOTPCheck = res.IsOTPCheck;
+            //    _user.OTPPassword = res.OTPPassword;
+            //    _user.RoleId = res.RoleId;
+            //    _user.UserTypeId = res.UserTypeId;
+            //    _user.DeviceID = res.DeviceID;
+            //    _user.Platform = res.Platform;
+            //    _userRegistrationBs.Save(_user);
+            //    apiResponse.IsSuccess = true;
+            //    apiResponse.Message = "Password reset successfully";
 
 
-            }
-            else
+            //}
+            //else
+            //{
+            //    apiResponse.IsSuccess = false;
+            //    apiResponse.Message = "Reset Failed";
+            //}
+            if (UserName == null)
             {
                 apiResponse.IsSuccess = false;
-                apiResponse.Message = "Reset Failed";
+                apiResponse.Message = "UserName cannot be empty";
+                return Ok(apiResponse);
             }
-
+            var response = _userRegistrationBs.UpdateResetPassword(UserName, NewPassword, otp);
+            if (!response)
+            {
+                apiResponse.IsSuccess = false;
+                apiResponse.Message = "Reset failed.Contact Admin";
+            }
+            apiResponse.IsSuccess = true;
+            apiResponse.Message = "Password reset successfully";
             return Ok(apiResponse);
-
         }
 
     }
